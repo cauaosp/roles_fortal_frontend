@@ -1,31 +1,32 @@
 import ArticleCard from "../components/ArticleCard";
-import articles from "../data/articles.json";
-
-type Article = {
-  titulo: string;
-  subtitulo: string | null;
-  categoria: string;
-  autor: string;
-  dataPublicacao: string;
-  link: string;
-  jornal: string;
-  createdAt: string;
-};
+import getArticles from "../api/get_articles";
+import type { Article } from "../data/types";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const typedArticles = articles as Article[];
+  const [articles, setArticles] = useState<Article[]>([]);
+
+  useEffect(() => {
+    getArticles().then(setArticles);
+  }, []);
 
   return (
     <>
-      <div className="p-5 border border-gray-50 rounded-xl my-5">
-        <h1 className="text-4xl font-bold mb-5">Opovo</h1>
-
-        <div className="columns-1 md:columns-3 gap-2">
-          {typedArticles.map((article, index) => (
-            <ArticleCard key={index} article={article} />
-          ))}
+      {articles.length === 0 ? (
+        <div className="flex items-center justify-center h-screen size-full">
+          <p>Nenhum artigo encontrado. 😔</p>
         </div>
-      </div>
+      ) : (
+        <div className="p-5 border border-gray-50 rounded-xl my-5">
+          <h1 className="text-4xl font-bold mb-5">Opovo</h1>
+
+          <div className="columns-1 md:columns-3 gap-2">
+            {articles.map((article, index) => (
+              <ArticleCard key={index} article={article} />
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }
