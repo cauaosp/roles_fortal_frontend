@@ -1,5 +1,5 @@
-import articles from "../data/articles.json";
 import ArticleCard from "../components/ArticleCard";
+import articles from "../data/articles.json";
 
 type Article = {
   titulo: string;
@@ -16,20 +16,16 @@ export default function Home() {
   const typedArticles = articles as Article[];
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Artigos</h1>
+    <>
+      <div className="p-5 border border-gray-50 rounded-xl my-5">
+        <h1 className="text-4xl font-bold mb-5">Opovo</h1>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "20px",
-        }}
-      >
-        {typedArticles.map((article, index) => (
-          <ArticleCard key={index} article={article} />
-        ))}
+        <div className="columns-1 md:columns-3 gap-2">
+          {typedArticles.map((article, index) => (
+            <ArticleCard key={index} article={article} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
