@@ -17,7 +17,7 @@ export default function Home() {
           <p>Nenhum artigo encontrado. 😔</p>
         </div>
       ) : (
-        <div className="p-5 border border-gray-50 rounded-xl my-5 bg-gray-50">
+        <div className="p-5 border border-gray-50 rounded-xl my-5">
           <h1 className="text-4xl font-bold mb-5">Opovo</h1>
 
           <div className="columns-1 md:columns-3 gap-2">
