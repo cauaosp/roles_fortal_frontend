@@ -1,32 +1,27 @@
-import ArticleCard from "../components/ArticleCard";
-import getArticles from "../api/get_articles";
-import type { Article } from "../data/types";
-import { useEffect, useState } from "react";
+import { useLoadArticle } from "../hook/useLoadArticle";
+import { JournalStructure } from "../components/ArticleCard";
 
 export default function Home() {
-  const [articles, setArticles] = useState<Article[]>([]);
-
-  useEffect(() => {
-    getArticles().then(setArticles);
-  }, []);
+  const { data, loading, error } = useLoadArticle();
+  console.log("url", data?.url);
+  console.log("status", data?.status);
+  console.log("response", data);
 
   return (
-    <>
-      {articles.length === 0 ? (
-        <div className="flex items-center justify-center h-screen size-full">
-          <p>Nenhum artigo encontrado. 😔</p>
+    <div className="border border-yellow-300">
+      {loading ? (
+        <div className="flex justify-center items-center mt-5">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
         </div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : data ? (
+        <JournalStructure data={data} />
       ) : (
-        <div className="p-5 border border-gray-50 rounded-xl my-5">
-          <h1 className="text-4xl font-bold mb-5">Opovo</h1>
-
-          <div className="columns-1 md:columns-3 gap-2">
-            {articles.map((article, index) => (
-              <ArticleCard key={index} article={article} />
-            ))}
-          </div>
+        <div className="font-bold text-center p-2 items-center border border-red-500 text-red-500">
+          não há dados
         </div>
       )}
-    </>
+    </div>
   );
 }

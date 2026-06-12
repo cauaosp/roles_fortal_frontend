@@ -1,35 +1,33 @@
-type Article = {
-  titulo: string;
-  subtitulo: string | null;
-  categoria: string;
-  autor: string;
-  dataPublicacao: string;
-  link: string;
-  jornal: string;
-  createdAt: string;
-};
+import type { JornalType } from "../data/types";
 
-export default function ArticleCard({ article }: { article: Article }) {
+interface ArticleCardProps {
+  data: JornalType;
+}
+
+export function JournalStructure({ data }: ArticleCardProps) {
   return (
-    <a href={article.link}>
-      <div className="break-inside-avoid-column mb-2 border border-gray-300 p-4 grid grid-flow-row gap-2 bg-gray-50/5 rounded-xl">
-        <h2 className="text-lg text-left font-bold leading-tight relative py-1">
-          <div className="text-xs absolute -top-2 right-0 font-light">
-            {article.categoria}
-          </div>
-          {article.titulo}
-        </h2>
-        <p className="text-sm text-left line-clamp-2 self-start">
-          {article.subtitulo}
-        </p>
-        <div className="flex gap-0 text-left text-xs">
-          <div>
-            {article.dataPublicacao.split(" ")[1].slice(0, 5)}&nbsp;|&nbsp;
-          </div>
-          <div> {article.dataPublicacao.split(" ")[0]}</div>
-          <div className="ml-auto">Por: {article.autor}</div>
+    <div className="border border-red-500 grid grid-cols-1 gap-4">
+      {Object.entries(data).map(([jornal, artigos]) => (
+        <div key={jornal} className="border p-3 m-auto max-w-[1000px]">
+          <h2 className="font-bold text-white ronded-lg m-1">
+            {jornal.toUpperCase()}
+          </h2>
+          <pre>{JSON.stringify(artigos, null, 2)}</pre>
         </div>
-      </div>
-    </a>
+      ))}
+    </div>
+  );
+}
+
+export function ArticleCard({ data }: ArticleCardProps) {
+  return (
+    <div>
+      {Object.entries(data).map(([jornal, artigos]) => (
+        <div key={jornal}>
+          <pre>{JSON.stringify(jornal, null, 2)}</pre>
+          <pre>{JSON.stringify(artigos, null, 2)}</pre>
+        </div>
+      ))}
+    </div>
   );
 }

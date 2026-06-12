@@ -1,0 +1,66 @@
+{
+  "opovo": [
+    {
+      "titulo": "Festival instrumental chega à Caixa Cultural com músicos cearense",
+      "subtitulo": "A primeira edição do Solos Cearenses promove oficinas e apresentações com nomes da música cearense e com novos artistas na Caixa cultural Fortaleza\r\n",
+      "categoria": "Agenda",
+      "autor": "O Povo",
+      "dataPublicacao": "2026-05-14 18:35:00",
+      "link": "https://www.opovo.com.br/vidaearte/agenda/2026/05/14/festival-instrumental-chega-a-caixa-cultural-com-musicos-cearense.html",
+      "jornal": "opovo",
+      "createdAt": "2026-05-14 18:42:40"
+    },
+    {
+      "titulo": "DFB 2026 terá passarelas em pontos turísticos da Praia de Iracema",
+      "subtitulo": "27º DFB Festival ocupa múltiplos espaços na Praia de Iracema durante o mês de junho",
+      "categoria": "Vida&Arte",
+      "autor": "Lillian Santos",
+      "dataPublicacao": "2026-05-14 17:59:00",
+      "link": "https://www.opovo.com.br/vidaearte/2026/05/14/dfb-2026-tera-passarelas-em-pontos-turisticos-da-praia-de-iracema.html",
+      "jornal": "opovo",
+      "createdAt": "2026-05-14 18:42:40"
+    }
+  ],
+  "globoce": [
+    {
+      "titulo": "Integrantes da facção Comando Vermelho são presos por fazer pichações em muros no Ceará",
+      "subtitulo": "As investigações iniciaram a partir de pichações criminosas feitas em setembro de 2025 em diferentes pontos do município cearense de Jardim.",
+      "categoria": "G1",
+      "dataPublicacao": "Thu, 14 May 2026 21:22:52 -0000",
+      "link": "https://g1.globo.com/ce/ceara/cariri/noticia/2026/05/14/quatro-suspeitos-de-integrar-a-faccao-cv-sao-presos-por-pichacoes-em-muros-no-ceara.ghtml",
+      "jornal": "g1ceara",
+      "createdAt": "2026-05-14 18:42:42"
+    },
+    {
+      "titulo": "Vídeo mostra momento em que empresário que disputou prefeitura de Bayeux, na PB, é baleado e morto",
+      "subtitulo": "De acordo com a Polícia Militar, crime tem características de execução. A vítima era natural do Ceará e se chamava Glicério Feitosa. Dois suspeitos estão foragidos.",
+      "categoria": "G1",
+      "dataPublicacao": "Thu, 14 May 2026 20:00:47 -0000",
+      "link": "https://g1.globo.com/pb/paraiba/noticia/2026/05/14/video-mostra-momento-em-que-empresario-que-disputou-prefeitura-de-bayeux-na-pb-e-baleado-e-morto.ghtml",
+      "jornal": "g1ceara",
+      "createdAt": "2026-05-14 18:42:42"
+    }
+  ],
+  "cearaagora": [
+    {
+      "titulo": "Nove cidades do Ceará têm divisas atualizadas após aprovação na Alece",
+      "subtitulo": "<p>A Assembleia Legislativa do Ceará aprovou, nesta quinta-feira (14), um projeto de lei que redefine os limites territoriais de nove municípios do interior do Estado. A proposta, apresentada pela Mesa Diretora da Casa, presidida por Romeu Aldigueri, foi analisada e validada em regime de urgência. Com a aprovação do PL 325/2026, passam a ter novas [&hellip;]</p>\n",
+      "categoria": "",
+      "autor": "Redação Ceará Agora",
+      "dataPublicacao": "2026-05-14T18:34:51",
+      "link": "https://cearaagora.com.br/nove-cidades-do-ceara-tem-divisas-atualizadas-apos-aprovacao-na-alece/",
+      "jornal": "cearaagora",
+      "created_at": "2026-05-14 18:42:45"
+    },
+    {
+      "titulo": "Mesmo após críticas, André Fernandes confirma aliança com Ciro no Ceará",
+      "subtitulo": "<p>O deputado federal André Fernandes, que preside o PL no Ceará, confirmou apoio à pré-candidatura de Ciro Gomes ao Governo do Estado. O anúncio foi feito nesta quinta-feira (14), por meio de um vídeo publicado nas redes sociais. Na gravação, o parlamentar afirmou que estará presente no evento de lançamento da pré-candidatura, marcado para o [&hellip;]</p>\n",
+      "categoria": "",
+      "autor": "Redação Ceará Agora",
+      "dataPublicacao": "2026-05-14T17:35:03",
+      "link": "https://cearaagora.com.br/mesmo-apos-criticas-andre-fernandes-confirma-alianca-com-ciro-no-ceara/",
+      "jornal": "cearaagora",
+      "created_at": "2026-05-14 18:42:46"
+    }
+  ]
+}
