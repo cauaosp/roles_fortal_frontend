@@ -1,31 +1,38 @@
-import type { JornalType } from "../data/types";
+import type { JornalType, ArticleType } from "../data/types";
 
-interface ArticleCardProps {
+interface JornalStrctureProps {
   data: JornalType;
 }
 
-export function JournalStructure({ data }: ArticleCardProps) {
+interface ArticleCardProps {
+  artigos: ArticleType[];
+}
+
+export function JournalStructure({ data }: JornalStrctureProps) {
   return (
-    <div className="border border-red-500 grid grid-cols-1 gap-4">
+    <div className="border border-red-500 grid grid-cols-1 gap-4 mt-5">
       {Object.entries(data).map(([jornal, artigos]) => (
-        <div key={jornal} className="border p-3 m-auto max-w-[1000px]">
+        <div key={jornal} className="border p-3 m-auto max-w-[90%]">
           <h2 className="font-bold text-white ronded-lg m-1">
             {jornal.toUpperCase()}
           </h2>
-          <pre>{JSON.stringify(artigos, null, 2)}</pre>
+          <ArticleCard artigos={artigos} />
         </div>
       ))}
     </div>
   );
 }
 
-export function ArticleCard({ data }: ArticleCardProps) {
+export function ArticleCard({ artigos }: ArticleCardProps) {
   return (
     <div>
-      {Object.entries(data).map(([jornal, artigos]) => (
-        <div key={jornal}>
-          <pre>{JSON.stringify(jornal, null, 2)}</pre>
-          <pre>{JSON.stringify(artigos, null, 2)}</pre>
+      {artigos.map((artigo) => (
+        <div
+          key={artigo.link}
+          className="border p-3 m-auto max-w-[90%] max-h-96 cursor-pointer w-96"
+          onClick={() => window.open(artigo.link, "_blank")}
+        >
+          {artigo.titulo}
         </div>
       ))}
     </div>
