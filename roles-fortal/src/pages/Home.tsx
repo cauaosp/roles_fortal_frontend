@@ -8,7 +8,7 @@ export default function Home() {
   console.log("response", data);
 
   return (
-    <div className="border border-yellow-300">
+    <div className="scroll-smooth bg-teal-500">
       {loading ? (
         <div className="flex justify-center items-center mt-5">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>

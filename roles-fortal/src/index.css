@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-    --bg: lightseagreen;
+    --bg: white;
     --border: #e5e4e7;
     --code-bg: #f4f3ec;
     --accent: #aa3bff;
@@ -32,7 +32,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: lightseagreen;
+        --bg: white;
         --border: #2e303a;
         --code-bg: #1f2028;
         --accent: #c084fc;
@@ -50,7 +50,6 @@
 }
 
 #root {
-    width: 1126px;
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
