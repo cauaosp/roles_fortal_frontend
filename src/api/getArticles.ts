@@ -1,7 +1,7 @@
 import type { JornalType } from "../data/types";
 
 export async function getArticles(): Promise<JornalType> {
-  const response = await fetch("/opovo");
+  const response = await fetch("/artigos");
 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
