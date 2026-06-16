@@ -14,9 +14,9 @@ export function JournalStructure({ data }: JornalStrctureProps) {
       {Object.entries(data).map(([jornal, artigos]) => (
         <div
           key={jornal}
-          className="border-2 text-slate-50 p-1 rounded-lg m-auto"
+          className="border border-teal-950 text-teal-950 p-1 rounded-lg m-auto"
         >
-          <h2 className="font-bold ronded-lg m-1 shadow-md">
+          <h2 className="font-bold ronded-lg m-1 shadow-sm">
             {jornal.toUpperCase()}
           </h2>
           <ArticleCard artigos={artigos} />
@@ -28,11 +28,11 @@ export function JournalStructure({ data }: JornalStrctureProps) {
 
 export function ArticleCard({ artigos }: ArticleCardProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-120 overflow-y-scroll scroll-smooth p-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-120 overflow-y-scroll scroll-smooth p-2 text-lime-200">
       {artigos.map((artigo) => (
         <div
           key={artigo.link}
-          className="p-3 rounded-lg font-serif relative pt-6 cursor-pointer grid gap-y-1 bg-slate-900/60 inset-shadow-sm"
+          className="p-3 rounded-lg font-serif relative pt-6 cursor-pointer grid gap-y-1 bg-teal-950 inset-shadow-sm hover:opacity-85"
           onClick={() => window.open(artigo.link, "_blank")}
         >
           <h3 className="text-justify rounded-xl font-bold tracking-tight">
@@ -43,7 +43,7 @@ export function ArticleCard({ artigos }: ArticleCardProps) {
               {artigo.subtitulo?.replace(/<[^>]*>/g, "") || ""}
             </p>
           )}
-          <div className="flex gap-0 text-slate-300 text-left text-sm font-light">
+          <div className="flex gap-0 text-lime-300 text-left text-sm font-light">
             <div className="mr-auto max-w-52">
               Por: {artigo.autor || "Desconhecido"}
             </div>
@@ -58,7 +58,7 @@ export function ArticleCard({ artigos }: ArticleCardProps) {
               </div>
             )}
           </div>
-          <div className="text-xs absolute text-slate-300 top-1.5 right-1 font-light">
+          <div className="text-xs absolute text-lime-300 top-1.5 right-1 font-light">
             {Array.isArray(artigo.categoria)
               ? artigo.categoria[0]
               : artigo.categoria || "Notícia"}
