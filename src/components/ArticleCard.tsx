@@ -14,7 +14,7 @@ export function JournalStructure({ data }: JornalStrctureProps) {
       {Object.entries(data).map(([jornal, artigos]) => (
         <div
           key={jornal}
-          className="border border-teal-950 text-teal-950 p-1 rounded-lg m-auto"
+          className="border border-teal-950 text-teal-950 p-1 rounded-lg w-full"
         >
           <h2 className="font-bold ronded-lg m-1 shadow-sm">
             {jornal.toUpperCase()}
@@ -28,7 +28,7 @@ export function JournalStructure({ data }: JornalStrctureProps) {
 
 export function ArticleCard({ artigos }: ArticleCardProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-120 overflow-y-scroll scroll-smooth p-2 text-lime-200">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-4 h-120 overflow-y-scroll scroll-smooth p-2 text-lime-200">
       {artigos.map((artigo) => (
         <div
           key={artigo.link}
@@ -45,7 +45,7 @@ export function ArticleCard({ artigos }: ArticleCardProps) {
           )}
           <div className="flex gap-0 text-lime-300 text-left text-sm font-light">
             <div className="mr-auto max-w-52">
-              Por: {artigo.autor || "Desconhecido"}
+              {artigo.autor ? `Por: ${artigo.autor}` : ""}
             </div>
             {artigo.dataPublicacao && (
               <div>

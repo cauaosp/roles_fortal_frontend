@@ -16,7 +16,9 @@ export default function Home() {
       ) : error ? (
         <div className="h-screen flex justify-center items-center">
           <div className="font-bold text-lg text-center p-3 rounded-lg border border-red-500 text-red-500">
-            Houve um erro: {error}
+            Houve um erro na busca, reinicie a página!
+            <br />
+            {error}
           </div>
         </div>
       ) : data ? (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getStaticJornais } from "../api/getArticles";
+import { getArticles } from "../api/getArticles";
 import type { JornalType } from "../data/types";
 
 export function useLoadArticle() {
@@ -13,7 +13,7 @@ export function useLoadArticle() {
         setLoading(true);
         console.log("carregando...");
 
-        const jornais = await getStaticJornais();
+        const jornais = await getArticles();
 
         setData(jornais);
       } catch (err) {
