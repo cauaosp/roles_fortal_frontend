@@ -11,7 +11,6 @@ export function useLoadArticle() {
     async function loadData() {
       try {
         setLoading(true);
-        console.log("carregando...");
 
         const jornais = await getArticles();
 

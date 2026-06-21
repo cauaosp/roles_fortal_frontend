@@ -3,9 +3,6 @@ import { JournalStructure } from "../components/ArticleCard";
 
 export default function Home() {
   const { data, loading, error } = useLoadArticle();
-  console.log("url", data?.url);
-  console.log("status", data?.status);
-  console.log("response", data);
 
   return (
     <div className="scroll-smooth bg-yellow-200">
