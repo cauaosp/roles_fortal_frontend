@@ -1,7 +1,9 @@
 import type { JornalType } from "../data/types";
 
 export async function getArticles(): Promise<JornalType> {
-  const response = await fetch("/artigos");
+  const response = await fetch(
+    "https://cauaosp.github.io/roles_fortal_backend/artigos_ceara.json",
+  );
 
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
