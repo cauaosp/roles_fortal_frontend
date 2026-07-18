@@ -10,8 +10,9 @@ interface ArticleCardProps {
 
 export function JournalStructure({ data }: JornalStrctureProps) {
   return (
-    <div className="m-1 grid grid-cols-1 2xl:grid-cols-2 gap-3">
+    <div className="m-4 grid grid-cols-1 2xl:grid-cols-2 gap-6">
       {Object.entries(data).map(([jornal, artigos]) => (
+        artigos.length > 0 && (
         <div
           key={jornal}
           className="border border-teal-950 text-teal-950 p-1 rounded-lg w-full"
@@ -21,6 +22,7 @@ export function JournalStructure({ data }: JornalStrctureProps) {
           </h2>
           <ArticleCard artigos={artigos} />
         </div>
+        )
       ))}
     </div>
   );
