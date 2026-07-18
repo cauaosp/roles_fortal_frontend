@@ -10,6 +10,12 @@ interface ArticleCardProps {
 
 export function JournalStructure({ data }: JornalStrctureProps) {
   return (
+    <>
+      <div className="border border-dashed border-teal-950 text-teal-950 ml-4 w-fit p-4 font-serif text-shadow-md rounded-lg">
+        <div className="w-fit">🗞️ Jornais: {Object.values(data).filter(artigos => artigos.length > 0).length}</div>
+        <div className="w-fit">🧾 Artigos: {Object.values(data).flat().length}</div>
+      </div>
+
     <div className="m-4 grid grid-cols-1 2xl:grid-cols-2 gap-6">
       {Object.entries(data).map(([jornal, artigos]) => (
         artigos.length > 0 && (
@@ -25,12 +31,13 @@ export function JournalStructure({ data }: JornalStrctureProps) {
         )
       ))}
     </div>
+    </>
   );
 }
 
 export function ArticleCard({ artigos }: ArticleCardProps) {
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-4 h-120 overflow-y-scroll scroll-smooth p-2 text-lime-200">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-4 max-h-150 overflow-y-scroll scroll-smooth p-2 text-lime-200">
       {artigos.map((artigo) => (
         <div
           key={artigo.link}

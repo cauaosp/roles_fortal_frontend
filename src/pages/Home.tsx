@@ -5,7 +5,9 @@ export default function Home() {
   const { data, loading, error } = useLoadArticle();
 
   return (
-    <div className="scroll-smooth bg-yellow-200">
+    <div className="scroll-smooth bg-yellow-200 h-screen overflow-auto">
+      <div className="font-bold font-serif text-3xl my-3 border-b-2 w-fit mx-auto">Rolê Fortal</div>
+
       {loading ? (
         <div className="flex justify-center items-center mt-5 h-screen">
           <div className="rounded-full size-32 border-10 border-double border-yellow-400 border-t-lime-500 animate-spin"></div>
