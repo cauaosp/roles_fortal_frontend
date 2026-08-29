@@ -7,6 +7,12 @@ Usei o projeto para treinar ETL, repositórios descentralizados e o uso de cont�
 <img width="400" alt="roles-fortal" src="https://github.com/user-attachments/assets/ff0710f8-2d89-49aa-b9bf-b74fa541250c" />
 
 🌐 url pública: https://roles-fortal-frontend.cauaosp20.workers.dev/
+
+## 🖧 Repositórios
+- Infra: https://github.com/cauaosp/roles_fortal_infra
+- Front: https://github.com/cauaosp/roles_fortal_frontend
+- Back: https://github.com/cauaosp/roles_fortal_backend
+
 ## 🏗️ Arquitetura
 
 🎨 Frontend: `Vite` • `TypeScript` • `React` 
