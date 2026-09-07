@@ -59,15 +59,15 @@ export function ArticleCard({ artigos }: ArticleCardProps) {
             </p>
           )}
 
-          {(artigo.author || artigo.publicationDate) && <div className="flex text-lime-300 text-sm font-light text-justify items-center">
+          {(artigo.author || artigo.publication_date) && <div className="flex text-lime-300 text-sm font-light text-justify items-center">
             <div className="mr-auto max-w-48">
               {artigo.author ?? ""}
             </div>
-            {artigo.publicationDate && (
+            {artigo.publication_date && (
               <div className="flex relative h-fit">
-                <div>{new Date(artigo.publicationDate).toLocaleDateString("pt-BR")}</div>
+                <div>{new Date(artigo.publication_date).toLocaleDateString("pt-BR")}</div>
                 <div className="absolute -bottom-3 text-xs">
-                  {new Date(artigo.publicationDate).toLocaleTimeString("pt-BR", {
+                  {new Date(artigo.publication_date).toLocaleTimeString("pt-BR", {
                     hour: "2-digit",
                     minute: "2-digit",
                   })}
