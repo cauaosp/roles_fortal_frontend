@@ -3,7 +3,7 @@ export type ArticleType = {
   subtitle?: string | null;
   category?: string | string[] | null;
   author?: string | null;
-  publicationDate?: string;
+  publication_date?: string;
   link: string;
   journal: string;
   scraped_at?: string;
