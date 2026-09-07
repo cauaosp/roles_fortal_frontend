@@ -1,4 +1,4 @@
-import type { JornalType, ArticleType } from "../data/types";
+import type { ArticleType, JornalType } from "../data/types";
 
 interface JornalStrctureProps {
   data: JornalType;
@@ -16,62 +16,65 @@ export function JournalStructure({ data }: JornalStrctureProps) {
         <div className="w-fit">🧾 Artigos: {Object.values(data).flat().length}</div>
       </div>
 
-    <div className="m-4 grid grid-cols-1 2xl:grid-cols-2 gap-6">
-      {Object.entries(data).map(([jornal, artigos]) => (
-        artigos.length > 0 && (
-        <div
-          key={jornal}
-          className="border border-teal-950 text-teal-950 p-1 rounded-lg w-full"
-        >
-          <h2 className="font-bold ronded-lg m-1 shadow-sm">
-            {jornal.toUpperCase()}
-          </h2>
-          <ArticleCard artigos={artigos} />
-        </div>
-        )
-      ))}
-    </div>
+      <div className="m-4 grid grid-cols-1 2xl:grid-cols-2 gap-6">
+        {Object.entries(data).map(([jornal, artigos]) => (
+          artigos.length > 0 && (
+          <div
+            key={jornal}
+            className="border border-teal-950 text-teal-950 p-1 rounded-lg w-full"
+          >
+            <h2 className="font-bold ronded-lg m-1 shadow-sm">
+              {jornal.toUpperCase()}
+            </h2>
+            <ArticleCard artigos={artigos} />
+          </div>
+          )
+        ))}
+      </div>
     </>
   );
 }
 
 export function ArticleCard({ artigos }: ArticleCardProps) {
+  console.log(artigos)
   return (
     <div className="grid grid-cols-[repeat(auto-fit,minmax(360px,1fr))] gap-4 max-h-150 overflow-y-scroll scroll-smooth p-2 text-lime-200">
       {artigos.map((artigo) => (
         <div
           key={artigo.link}
-          className="p-3 rounded-lg font-serif relative pt-6 cursor-pointer grid gap-y-1 bg-teal-950 inset-shadow-sm hover:opacity-85"
+          className="p-3 rounded-sm font-serif relative py-6 cursor-pointer grid gap-y-3 bg-teal-950 inset-shadow-sm hover:opacity-85 h-fit"
           onClick={() => window.open(artigo.link, "_blank")}
         >
-          <h3 className="text-justify rounded-xl font-bold tracking-tight">
-            {artigo.titulo}
+          <div className="text-xs absolute text-lime-300 top-1.5 right-1 font-light">
+            {Array.isArray(artigo.category)
+              ? artigo.category[0]
+              : artigo.category || "Notícia"}
+          </div>
+          <h3 className="text-justify font-bold tracking-tight border-b border-border pb-1 h-fit">
+            {artigo.title}
           </h3>
-          {artigo.subtitulo && (
-            <p className="text-left line-clamp-3 self-start tracking-tighter">
-              {artigo.subtitulo?.replace(/<[^>]*>/g, "") || ""}
+          {artigo.subtitle && (
+            <p className="text-justify self-start tracking-tighter border-b border-border pb-4">
+              {artigo.subtitle.trim()}
             </p>
           )}
-          <div className="flex gap-0 text-lime-300 text-left text-sm font-light">
-            <div className="mr-auto max-w-52">
-              {artigo.autor ? `Por: ${artigo.autor}` : ""}
+
+          {(artigo.author || artigo.publicationDate) && <div className="flex text-lime-300 text-sm font-light text-justify items-center">
+            <div className="mr-auto max-w-48">
+              {artigo.author ?? ""}
             </div>
-            {artigo.dataPublicacao && (
-              <div>
-                {new Date(artigo.dataPublicacao).toLocaleDateString("pt-BR")}
-                &nbsp;|&nbsp;
-                {new Date(artigo.dataPublicacao).toLocaleTimeString("pt-BR", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+            {artigo.publicationDate && (
+              <div className="flex relative h-fit">
+                <div>{new Date(artigo.publicationDate).toLocaleDateString("pt-BR")}</div>
+                <div className="absolute -bottom-3 text-xs">
+                  {new Date(artigo.publicationDate).toLocaleTimeString("pt-BR", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </div>
               </div>
             )}
-          </div>
-          <div className="text-xs absolute text-lime-300 top-1.5 right-1 font-light">
-            {Array.isArray(artigo.categoria)
-              ? artigo.categoria[0]
-              : artigo.categoria || "Notícia"}
-          </div>
+          </div>}
         </div>
       ))}
     </div>
