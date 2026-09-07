@@ -1,12 +1,12 @@
 export type ArticleType = {
-  titulo: string;
-  subtitulo?: string | null;
-  categoria?: string | string[] | null;
-  autor?: string | null;
-  dataPublicacao: string;
+  title: string;
+  subtitle?: string | null;
+  category?: string | string[] | null;
+  author?: string | null;
+  publicationDate?: string;
   link: string;
-  jornal: string;
-  createdAt?: string;
+  journal: string;
+  scraped_at?: string;
   created_at?: string;
 };
 
