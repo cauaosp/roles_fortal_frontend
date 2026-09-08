@@ -6,12 +6,10 @@ type Props = {
 };
 
 export function JournalStructure({ data }: Props) {
-  const news = Object.values(data).flat();
-  console.log(news)
 
   return (
     <div className="mosaic">
-      {news.map((a) => (
+      {data.map((a) => (
         <ArticleCard
           key={a.link}
           articles={a}
@@ -28,7 +26,8 @@ export function ArticleCard({ articles }: { articles: ArticleType }) {
 
   return (
     <article
-      className="mosaic-item group cursor-pointer overflow-hidden rounded-lg border border-border bg-card shadow-(--shadow-card) transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)]"
+      className="mosaic-item group cursor-pointer overflow-hidden rounded-lg border border-border bg-card shadow-(--shadow-card) transition-all duration-200 hover:-translate-y-0.5
+      hover:shadow-(--shadow-card-hover)"
       onClick={() => window.open(articles.link, "_blank", "noopener,noreferrer")}
     >
       <div className="h-1 w-full" style={{ backgroundColor: accent }} aria-hidden="true" />

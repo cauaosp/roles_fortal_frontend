@@ -1,4 +1,4 @@
-import { formatJournal, journalColor } from "../lib/journals.ts";
+import { formatJournal, journalColor } from "../lib/journals";
 
 type Props = {
   jornais:string[];
