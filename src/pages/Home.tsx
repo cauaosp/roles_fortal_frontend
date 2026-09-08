@@ -1,4 +1,5 @@
 import { JournalStructure } from "../components/ArticleCard";
+import { Footer } from "../components/footer";
 import { SiteHeader } from "../components/SiteHeader";
 import { useLoadArticle } from "../hook/useLoadArticle";
 
@@ -32,7 +33,7 @@ export default function Home() {
           </div>
         )}
       </main>
-
+      <Footer />
     </div>
   );
 }
