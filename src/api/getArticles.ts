@@ -1,4 +1,5 @@
 import { shuffleArticles } from "../lib/shuffle";
+import { deduplicateArticles } from "../lib/utils";
 import type { GetArticlesResponse, JournalProps } from "../model/types";
 
 const DEFAULT_ARTICLES_URL =
@@ -6,7 +7,6 @@ const DEFAULT_ARTICLES_URL =
 
 export async function getArticles(): Promise<GetArticlesResponse> {
   const url = import.meta.env.VITE_ARTICLES_URL ?? DEFAULT_ARTICLES_URL;
-  console.log("url: ", url);
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -19,7 +19,9 @@ export async function getArticles(): Promise<GetArticlesResponse> {
     throw new Error("No articles found");
   }
 
-  return { articles, journals };
+  const uniqueArticles = deduplicateArticles(articles)
+
+  return { articles: uniqueArticles, journals };
 }
 
 export async function getStaticJornais(): Promise<JournalProps> {

@@ -6,8 +6,6 @@ type Props = {
 };
 
 export function SiteHeader({ jornais, totalArtigos }: Props) {
-  console.log(`jornais: ${jornais} | totalArtigos: ${totalArtigos}`)
-
   return (
     <header className="border-b border-border bg-surface-raised">
       <div className="rule-gradient h-1 w-full" aria-hidden="true" />

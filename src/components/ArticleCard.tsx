@@ -6,7 +6,6 @@ type Props = {
 };
 
 export function JournalStructure({ data }: Props) {
-
   return (
     <div className="mosaic">
       {data.map((a) => (

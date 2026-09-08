@@ -44,6 +44,9 @@
   --color-brand-sun: var(--brand-sun);
   --color-brand-rose: var(--brand-rose);
   --color-brand-tangerine: var(--brand-tangerine);
+  --color-brand-leaf: var(--brand-leaf);
+  --color-brand-grape: var(--brand-grape);
+  --color-brand-ocean: var(--brand-ocean);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-surface-raised: var(--surface-raised);
@@ -72,6 +75,9 @@
   --brand-sun: oklch(0.86 0.17 90);
   --brand-tangerine: oklch(0.81 0.13 68);
   --brand-rose: oklch(0.65 0.24 5);
+  --brand-leaf: oklch(0.7 0.14 155);
+  --brand-grape: oklch(0.58 0.15 310);
+  --brand-ocean: oklch(0.58 0.12 245);
 
   --ink: oklch(0.24 0.03 220);
   --ink-soft: oklch(0.48 0.02 220);
@@ -144,10 +150,13 @@
   background-image: linear-gradient(
     90deg,
     var(--brand-cyan),
+    var(--brand-leaf),
     var(--brand-sun),
     var(--brand-tangerine),
     var(--brand-coral),
-    var(--brand-rose)
+    var(--brand-grape),
+    var(--brand-rose),
+    var(--brand-ocean)
   );
 }
 
