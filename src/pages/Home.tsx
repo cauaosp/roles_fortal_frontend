@@ -5,7 +5,6 @@ import { useLoadArticle } from "../hook/useLoadArticle";
 
 export default function Home() {
   const { data, loading, error } = useLoadArticle();
-  console.log(data, loading, error);
 
   return (
     <div className="scroll-smooth bg-background h-screen overflow-auto">
