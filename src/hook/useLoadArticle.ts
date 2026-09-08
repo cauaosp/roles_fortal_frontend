@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api/getArticles";
-import type { JornalType } from "../data/types";
+import type { GetArticlesResponse } from "../model/types";
 
 export function useLoadArticle() {
-  const [data, setData] = useState<JornalType | null>(null);
+  const [data, setData] = useState<GetArticlesResponse>({articles: [], journals: []});
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -12,9 +12,10 @@ export function useLoadArticle() {
       try {
         setLoading(true);
 
-        const jornais = await getArticles();
+        const {articles, journals} = await getArticles();
 
-        setData(jornais);
+
+        setData({articles, journals});
       } catch (err) {
         setError(err instanceof Error ? err.message : "Erro desconhecido!");
       } finally {

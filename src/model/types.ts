@@ -10,8 +10,8 @@ export type ArticleType = {
   created_at?: string;
 };
 
-export type JornalType = {
-  [nomeDoJornal: string]: ArticleType[];
+export type JournalProps = {
+  [journal_name: string]: ArticleType[];
 };
 
-export type ApiResponse = JornalType;
+export type GetArticlesResponse = { articles: ArticleType[]; journals: string[] }

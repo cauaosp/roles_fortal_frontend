@@ -1,13 +1,14 @@
-import { useLoadArticle } from "../hook/useLoadArticle";
 import { JournalStructure } from "../components/ArticleCard";
+import { SiteHeader } from "../components/SiteHeader";
+import { useLoadArticle } from "../hook/useLoadArticle";
 
 export default function Home() {
   const { data, loading, error } = useLoadArticle();
+  console.log(data, loading, error);
 
   return (
-    <div className="scroll-smooth bg-yellow-200 h-screen overflow-auto">
-      <div className="font-bold font-serif text-3xl my-3 border-b-2 w-fit mx-auto">Rolê Fortal</div>
-
+    <div className="scroll-smooth bg-background h-screen overflow-auto">
+      <SiteHeader jornais={data.journals} totalArtigos={data.articles.length} />
       {loading ? (
         <div className="flex justify-center items-center mt-5 h-screen">
           <div className="rounded-full size-32 border-10 border-double border-yellow-400 border-t-lime-500 animate-spin"></div>
@@ -21,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       ) : data ? (
-        <JournalStructure data={data} />
+        <JournalStructure data={data.articles} />
       ) : (
         <div className="h-screen flex justify-center items-center">
           <div className="font-bold text-lg text-center p-3 rounded-lg border border-red-500 text-red-500">
