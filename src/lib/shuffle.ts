@@ -7,6 +7,10 @@ export function shuffleArticles(data: JournalProps): {articles: ArticleType[]; j
   return {articles, journals};
 }
 
+export function shuffleNews(data: ArticleType[]): ArticleType[] {
+  return shuffle(data) ?? [];
+}
+
 export function shuffle<T>(array: T[]): T[] {
   const result = [...array];
 

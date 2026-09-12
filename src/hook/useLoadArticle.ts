@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../api/getArticles";
+import { getNewsFromDB } from "../api/getArticles";
 import type { GetArticlesResponse } from "../model/types";
 
 export function useLoadArticle() {
@@ -12,7 +12,7 @@ export function useLoadArticle() {
       try {
         setLoading(true);
 
-        const {articles, journals} = await getArticles();
+        const {articles, journals} = await getNewsFromDB();
 
 
         setData({articles, journals});
