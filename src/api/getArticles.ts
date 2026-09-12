@@ -1,35 +1,45 @@
-import { shuffleArticles } from "../lib/shuffle";
-import { deduplicateArticles } from "../lib/utils";
-import type { GetArticlesResponse, JournalProps } from "../model/types";
+import { shuffleNews } from "../lib/shuffle";
+import { supabase } from "../lib/supabaseClient";
+import type { ArticleType, GetArticlesResponse } from "../model/types";
 
-const DEFAULT_ARTICLES_URL =
-  "https://cauaosp.github.io/roles_fortal_backend/data/artigos_ceara.json";
+export async function getArticlesFromDB(): Promise<ArticleType[]> {
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-export async function getArticles(): Promise<GetArticlesResponse> {
-  const url = import.meta.env.VITE_ARTICLES_URL ?? DEFAULT_ARTICLES_URL;
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  if (error) {
+    throw new Error(error.message);
   }
 
-  const { articles, journals } = shuffleArticles(await response.json())
-
-  if(articles.length === 0) {
+  if (!data || data.length === 0) {
     throw new Error("No articles found");
   }
 
-  const uniqueArticles = deduplicateArticles(articles)
+  const articles = shuffleNews(data);
 
-  return { articles: uniqueArticles, journals };
+  return articles;
 }
 
-export async function getStaticJornais(): Promise<JournalProps> {
-  const response = await fetch("/articles.json");
+export async function getJournalsFromDB(): Promise<string[]> {
+  const { data, error } = await supabase.from("journals").select("journal");
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  if (error) {
+    throw new Error(error.message);
   }
 
-  return response.json() as Promise<JournalProps>;
+  if (!data || data.length === 0) {
+    throw new Error("No journals found");
+  }
+
+  const list = data.map((article) => article.journal);
+
+  return list;
+}
+
+export async function getNewsFromDB(): Promise<GetArticlesResponse> {
+  const articles = await getArticlesFromDB();
+  const journals = await getJournalsFromDB();
+
+  return { articles, journals };
 }

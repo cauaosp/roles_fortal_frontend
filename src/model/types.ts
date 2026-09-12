@@ -14,4 +14,7 @@ export type JournalProps = {
   [journal_name: string]: ArticleType[];
 };
 
-export type GetArticlesResponse = { articles: ArticleType[]; journals: string[] }
+export type GetArticlesResponse = {
+  articles: ArticleType[];
+  journals: string[];
+};
