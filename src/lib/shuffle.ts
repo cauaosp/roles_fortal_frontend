@@ -1,11 +1,4 @@
-import type { ArticleType, JournalProps } from "../model/types";
-
-export function shuffleArticles(data: JournalProps): {articles: ArticleType[]; journals: string[]} {
-  const articles: ArticleType[] = shuffle(Object.values(data).flat()) ?? [];
-  const journals: string[] = Object.keys(data) ?? [];
-
-  return {articles, journals};
-}
+import type { ArticleType } from "../model/types";
 
 export function shuffleNews(data: ArticleType[]): ArticleType[] {
   return shuffle(data) ?? [];

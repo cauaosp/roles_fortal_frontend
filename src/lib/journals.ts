@@ -11,10 +11,13 @@ const FALLBACK_PALETTE = [
   "var(--brand-ocean)",
 ];
 
-const JOURNAL_MAP: Record<string, {
-  name: string;
-  color: string;
-}> = {
+const JOURNAL_MAP: Record<
+  string,
+  {
+    name: string;
+    color: string;
+  }
+> = {
   opovo: {
     name: "O povo",
     color: "var(--brand-cyan)",
@@ -63,7 +66,7 @@ export function journalColor(journal: string): string {
   }
 
   const nameMatch = Object.values(JOURNAL_MAP).find(
-    (journal) => normalizeJournal(journal.name) === normalized
+    (journal) => normalizeJournal(journal.name) === normalized,
   );
 
   if (nameMatch) {
@@ -79,14 +82,18 @@ export function journalColor(journal: string): string {
   return FALLBACK_PALETTE[hash % FALLBACK_PALETTE.length];
 }
 
-
 export function formatJournal(journal: string): string {
   return journal.trim().toUpperCase();
 }
 
-export function totalArticles(data: JournalProps): { journals: string[], totalArticles: number } {
+export function totalArticles(data: JournalProps): {
+  journals: string[];
+  totalArticles: number;
+} {
   const journals: string[] = Object.keys(data ?? {});
-  const totalArticles: number = journals.reduce((acc, key) => acc + data[key].length, 0);
+  const totalArticles: number = journals.reduce(
+    (acc, key) => acc + data[key].length,
+    0,
+  );
   return { journals, totalArticles };
-
 }

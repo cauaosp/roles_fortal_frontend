@@ -3,7 +3,10 @@ import { getNewsFromDB } from "../api/getArticles";
 import type { GetArticlesResponse } from "../model/types";
 
 export function useLoadArticle() {
-  const [data, setData] = useState<GetArticlesResponse>({articles: [], journals: []});
+  const [data, setData] = useState<GetArticlesResponse>({
+    articles: [],
+    journals: [],
+  });
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -12,10 +15,9 @@ export function useLoadArticle() {
       try {
         setLoading(true);
 
-        const {articles, journals} = await getNewsFromDB();
+        const { articles, journals } = await getNewsFromDB();
 
-
-        setData({articles, journals});
+        setData({ articles, journals });
       } catch (err) {
         setError(err instanceof Error ? err.message : "Erro desconhecido!");
       } finally {
