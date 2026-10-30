@@ -1,5 +1,5 @@
-import { JournalStructure } from "../components/ArticleCard";
 import { Footer } from "../components/footer";
+import { JournalStructure } from "../components/JournalStructure";
 import { SiteHeader } from "../components/SiteHeader";
 import { useLoadArticle } from "../hook/useLoadArticle";
 
@@ -7,12 +7,12 @@ export default function Home() {
   const { data, loading, error } = useLoadArticle();
 
   return (
-    <div className="scroll-smooth bg-background h-screen overflow-auto">
+    <div className="scroll-smooth bg-background min-h-screen grid grid-rows-[auto_1fr_auto]">
       <SiteHeader jornais={data.journals} totalArtigos={data.articles.length} />
-      <main className="mx-auto max-w-350 px-5 py-10 md:px-8 md:py-14">
+      <main className="mx-auto max-w-350 p-5 md:px-8 md:py-14 w-full">
         {loading ? (
           <div className="flex justify-center items-center mt-5 h-72 md:h-96">
-            <div className="rounded-full size-32 border-10 border-double border-brand-cyan border-t-brand-coral animate-spin"></div>
+            <div className="rounded-full size-32 border-10 border-dotted border-brand-sun border-t-brand-ocean animate-spin"></div>
           </div>
         ) : error ? (
           <div className="h-72 md:h-96 flex justify-center items-center">
