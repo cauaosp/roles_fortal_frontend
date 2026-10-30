@@ -1,40 +1,10 @@
-import { useMemo, useState } from "react";
 import { JournalStructure } from "../components/ArticleCard";
 import { Footer } from "../components/footer";
 import { SiteHeader } from "../components/SiteHeader";
 import { useLoadArticle } from "../hook/useLoadArticle";
-import type { ArticleType } from "../model/types";
 
 export default function Home() {
   const { data, loading, error } = useLoadArticle();
-  const [search, setSearch] = useState("");
-
-  const filteredArticles = useMemo(() => {
-    const query = search.trim().toLocaleLowerCase("pt-BR");
-
-    if (!query) {
-      return data.articles;
-    }
-
-    return data.articles.filter((article: ArticleType) => {
-      const category = Array.isArray(article.category)
-        ? article.category.join(" ")
-        : (article.category ?? "");
-
-      const searchableText = [
-        article.title,
-        article.subtitle,
-        article.author,
-        article.journal,
-        category,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLocaleLowerCase("pt-BR");
-
-      return searchableText.includes(query);
-    });
-  }, [data.articles, search]);
 
   return (
     <div className="scroll-smooth bg-background min-h-screen grid grid-rows-[auto_1fr_auto]">
@@ -53,31 +23,7 @@ export default function Home() {
             </div>
           </div>
         ) : data ? (
-          <div className="space-y-4">
-            <input
-              type="search"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              placeholder="Buscar notícias por título, jornal, autor..."
-              aria-label="Buscar notícias"
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-brand-cyan"
-            />
-
-            <p className="text-sm text-muted-foreground">
-              {filteredArticles.length}{" "}
-              {filteredArticles.length === 1
-                ? "artigo encontrado"
-                : "artigos encontrados"}
-            </p>
-
-            {filteredArticles.length > 0 ? (
-              <JournalStructure key={search} data={filteredArticles} />
-            ) : (
-              <p className="py-10 text-center text-muted-foreground">
-                Nenhum artigo encontrado para "{search}".
-              </p>
-            )}
-          </div>
+          <JournalStructure data={data.articles} />
         ) : (
           <div className="h-screen flex justify-center items-center">
             <div className="font-bold text-lg text-center p-3 rounded-lg border border-red-500 text-red-500">
