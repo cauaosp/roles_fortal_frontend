@@ -6,8 +6,6 @@ export type ArticleType = {
   publication_date?: string;
   link: string;
   journal: string;
-  scraped_at?: string;
-  created_at?: string;
 };
 
 export type JournalProps = {

@@ -10,7 +10,7 @@ export default function Home() {
     <div className="scroll-smooth bg-background h-screen overflow-auto">
       <SiteHeader jornais={data.journals} totalArtigos={data.articles.length} />
       <main className="mx-auto max-w-350 px-5 py-10 md:px-8 md:py-14">
-        {!loading ? (
+        {loading ? (
           <div className="flex justify-center items-center mt-5 h-72 md:h-96">
             <div className="rounded-full size-32 border-10 border-dotted border-brand-sun border-t-brand-ocean animate-spin"></div>
           </div>

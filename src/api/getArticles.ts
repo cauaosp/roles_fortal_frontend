@@ -5,8 +5,17 @@ import type { ArticleType, GetArticlesResponse } from "../model/types";
 export async function getArticlesFromDB(): Promise<ArticleType[]> {
   const { data, error } = await supabase
     .from("articles")
-    .select("*")
-    .order("created_at", { ascending: false });
+    .select(
+      `title,
+      subtitle,
+      category,
+      author,
+      publication_date,
+      link,
+      journal`,
+    )
+    .order("publication_date", { ascending: false, nullsFirst: false })
+    .limit(350);
 
   if (error) {
     throw new Error(error.message);
