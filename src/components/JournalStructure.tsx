@@ -35,12 +35,12 @@ export function JournalStructure({ data }: { data: ArticleType[] }) {
     });
   }, [data, search]);
 
-  const visibleArticles = data.slice(0, visibleCount);
-  const hasMore = visibleArticles.length < data.length;
+  const visibleArticles = filteredArticles.slice(0, visibleCount);
+  const hasMore = visibleArticles.length < filteredArticles.length;
 
   function handleLoadMore() {
     setVisibleCount((current: number) =>
-      Math.min(current + ARTICLES_PER_PAGE, data.length),
+      Math.min(current + ARTICLES_PER_PAGE, filteredArticles.length),
     );
   }
 
@@ -49,7 +49,10 @@ export function JournalStructure({ data }: { data: ArticleType[] }) {
       <input
         type="search"
         value={search}
-        onChange={(event) => setSearch(event.target.value)}
+        onChange={(event) => {
+          setSearch(event.target.value);
+          setVisibleCount(ARTICLES_PER_PAGE);
+        }}
         placeholder="Buscar notícias por título, jornal, autor..."
         aria-label="Buscar notícias"
         className="w-full rounded-lg border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-brand-cyan"
