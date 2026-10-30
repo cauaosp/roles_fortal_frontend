@@ -1,5 +1,5 @@
-import { JournalStructure } from "../components/ArticleCard";
 import { Footer } from "../components/footer";
+import { JournalStructure } from "../components/JournalStructure";
 import { SiteHeader } from "../components/SiteHeader";
 import { useLoadArticle } from "../hook/useLoadArticle";
 
