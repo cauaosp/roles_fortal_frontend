@@ -15,7 +15,7 @@ export async function getArticlesFromDB(): Promise<ArticleType[]> {
       journal`,
     )
     .order("publication_date", { ascending: false, nullsFirst: false })
-    .limit(350);
+    .limit(500);
 
   if (error) {
     throw new Error(error.message);

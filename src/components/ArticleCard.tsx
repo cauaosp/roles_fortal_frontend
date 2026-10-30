@@ -29,7 +29,7 @@ export function JournalStructure({ data }: Props) {
       </div>
       {hasMore && (
         <button
-          className="mx-auto mt-5 px-5 py-3 cursor-pointer rounded-sm font-sans uppercase font-bold border border-brand-cyan/50 text-brand-cyan bg-brand-cyan/5 hover:bg-brand-leaf/20 hover:border-brand-leaf hover:text-brand-leaf shadow block"
+          className="mx-auto mt-10 px-5 py-3 cursor-pointer rounded-sm font-sans uppercase font-bold border border-brand-cyan/50 text-brand-cyan bg-brand-cyan/5 hover:bg-brand-leaf/20 hover:border-brand-leaf hover:text-brand-leaf shadow block"
           onClick={handleLoadMore}
         >
           Carregar Mais
@@ -122,5 +122,5 @@ function categoryOf(article: ArticleType): string {
   const c = Array.isArray(article.category)
     ? article.category[0]
     : article.category;
-  return (c && c.trim()) || "Notícia";
+  return (c && c.trim()) || "";
 }
